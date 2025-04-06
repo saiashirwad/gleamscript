@@ -61,7 +61,7 @@ pub type Definition {
     ret_type: Option(Type),
     body: Expr,
   )
-  DefType(type_name: Name, type_body: Type)
+  DefType(name: Name, body: Type)
 }
 
 pub type Program =

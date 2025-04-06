@@ -10,17 +10,11 @@ fn get_field(expr: ast.Expr, field: String) -> ast.Expr {
 }
 
 pub fn main() {
-  let point_type_def =
+  echo [
     ast.DefType(
-      type_name: "Point",
-      type_body: ast.StructType(kvs: [
-        #("x", ast.NumberType),
-        #("y", ast.NumberType),
-      ]),
-    )
-
-  let program_ast = [
-    point_type_def,
+      name: "Point",
+      body: ast.StructType(kvs: [#("x", ast.NumberType), #("y", ast.NumberType)]),
+    ),
     ast.DefFun(
       name: "distance-squared",
       args: [#("p", ast.VarType("Point"))],
@@ -37,6 +31,4 @@ pub fn main() {
       ),
     ),
   ]
-
-  echo program_ast
 }
