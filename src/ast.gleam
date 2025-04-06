@@ -56,10 +56,10 @@ pub type Pattern {
 
 pub type Definition {
   DefFun(
-    fun_name: Name,
-    fun_args: List(#(Name, Type)),
-    fun_ret_type: Option(Type),
-    fun_body: Expr,
+    name: Name,
+    args: List(#(Name, Type)),
+    ret_type: Option(Type),
+    body: Expr,
   )
   DefType(type_name: Name, type_body: Type)
 }

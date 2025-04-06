@@ -10,19 +10,22 @@ fn get_field(expr: ast.Expr, field: String) -> ast.Expr {
 }
 
 pub fn main() {
-  let program_ast = [
+  let point_type_def =
     ast.DefType(
       type_name: "Point",
       type_body: ast.StructType(kvs: [
         #("x", ast.NumberType),
         #("y", ast.NumberType),
       ]),
-    ),
+    )
+
+  let program_ast = [
+    point_type_def,
     ast.DefFun(
-      fun_name: "distance-squared",
-      fun_args: [#("p", ast.VarType("Point"))],
-      fun_ret_type: Some(ast.NumberType),
-      fun_body: ast.LetExpression(
+      name: "distance-squared",
+      args: [#("p", ast.VarType("Point"))],
+      ret_type: Some(ast.NumberType),
+      body: ast.LetExpression(
         bindings: [
           #("x", get_field(var("p"), "x")),
           #("y", get_field(var("p"), "y")),
